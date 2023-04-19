@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
-const PORT = 2023
+const PORT = 0419
 const cors = require('cors');
-const render = require('render')
+// const render = require('render')
 
 app.use(cors())
 
@@ -58,9 +58,15 @@ app.get('/', (request, response)=>{
     response.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:name', (request, response)=>{
-    const word = request.params.name.toLowerCase()
-    
+app.get('/api', (request, response)=>{
+   
+    response.json(words)
+})
+app.get('/api/:name/:level', (request, response)=>{
+    const type = request.params.name.toLowerCase()
+    const level = request.params.name.toLowerCase()
+    if (words[type] && words[level])
+    console.log()
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
