@@ -8,7 +8,7 @@ app.use(cors())
 
 const words = {
     'adjective': {
-        'lk': ['calm', 'comfortable', 'curious', 'disappointed', 'embarrassed', 'enormouse', 'exhausted', 'fair', 'fascinating', 'frustrated', 'gigantic', 'grumpy', 'huge', ],
+        'lk': ['calm', 'comfortable', 'curious', 'disappointed', 'embarrassed', 'enormouse', 'exhausted', 'fair', 'fascinating', 'frustrated', 'gigantic', 'grumpy', 'huge', 'important', 'jealous', 'lovely', 'miserable', 'negative', 'nervous', 'opposite', 'ordinary', 'positive', 'precious', 'proud', 'special', 'spotless', 'uncomfortable', 'worried'],
         'l1': ['', '', '', '', '', '', ''],
         'l2': ['', '', '', '', '', '', ''],
         'l3': ['', '', '', '', '', '', ''],
@@ -19,7 +19,7 @@ const words = {
     },  
 
     'adverb': {
-        'lk': ['instead', '', '', '', '', '', ''],
+        'lk': ['instead', 'suddenly'],
         'l1': ['', '', '', '', '', '', ''],
         'l2': ['', '', '', '', '', '', ''],
         'l3': ['', '', '', '', '', '', ''],
@@ -30,7 +30,7 @@ const words = {
     },    
 
     'noun': {
-        'lk': ['attention', 'consequences', 'curve', 'directions', 'explore', 'feast', ''],
+        'lk': ['attention', 'consequences', 'curve', 'directions', 'explore', 'feast', 'leader', 'list', 'note', 'problem', 'question', 'report', 'rhyme', 'respect', 'suggestion', 'surprise', 'warning'],
         'l1': ['', '', '', '', '', '', ''],
         'l2': ['', '', '', '', '', '', ''],
         'l3': ['', '', '', '', '', '', ''],
@@ -41,7 +41,7 @@ const words = {
     },
 
     'verb': {
-        'lk': ['annoy', 'decide', 'discover', 'focus', 'ignore', '', ''],
+        'lk': ['annoy', 'decide', 'discover', 'focus', 'ignore', 'investigate', 'invite', 'listen', 'measuring', 'mumble', 'nibbled', 'notice', 'observing', 'prefer', 'protect', 'reminds', 'repeat', 'report', 'searching', 'squirm', 'stomped', 'wonder'],
         'l1': ['', '', '', '', '', '', ''],
         'l2': ['', '', '', '', '', '', ''],
         'l3': ['', '', '', '', '', '', ''],
@@ -59,12 +59,8 @@ app.get('/', (request, response)=>{
 })
 
 app.get('/api/:name', (request, response)=>{
-    const disabilityName = request.params.name.toLowerCase()
-    if(learningDisabilities[disabilityName]) {
-        response.json(learningDisabilities[disabilityName])
-    } else {
-        response.json(learningDisabilities['unknown'])
-    }
+    const word = request.params.name.toLowerCase()
+    
 })
 
 app.listen(process.env.PORT || PORT, ()=>{
